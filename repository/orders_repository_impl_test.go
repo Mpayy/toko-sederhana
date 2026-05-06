@@ -23,13 +23,13 @@ func TestOrderRepositoryImpl_BuatOrder(t *testing.T) {
 	}
 	defer tx.Rollback()
 
-	productIdUpdate := int32(2)
+	productIdUpdate := int32(1)
 	product, err := productRepository.GetByIDTx(ctx, tx, productIdUpdate)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	qty := int32(2)
+	qty := int32(3)
 	newStock := product.Stock - qty
 
 	newOrder := entity.Orders{
